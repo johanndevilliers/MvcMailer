@@ -25,3 +25,7 @@ Autotest.config
 *.nupkg
 #Nuget/input/lib
 lib
+/.vs/Mvc.Mailer/v16/Server/sqlite3
+*.sqlite
+/.vs/Mvc.Mailer/DesignTimeBuild
+/packages

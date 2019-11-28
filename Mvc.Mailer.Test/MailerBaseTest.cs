@@ -147,10 +147,10 @@ namespace Mvc.Mailer.Test {
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
+        
         public void PopulateBody_should_throw_exception_if_mailMessage_is_null() {
             MailMessage mailMessage = null;
-            _mailerBase.PopulateBody(mailMessage, "Welcome");
+          Assert.Throws<ArgumentNullException>(() =>  _mailerBase.PopulateBody(mailMessage, "Welcome"));
         }
 
         [Test]

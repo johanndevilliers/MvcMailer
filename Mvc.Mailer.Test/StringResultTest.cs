@@ -13,15 +13,14 @@ namespace Mvc.Mailer.Test {
             _stringResult = new StringResult();
         }
 
-        [Test, ExpectedException(typeof(ArgumentNullException))]
-        public void ExecuteResultWithNullContextShouldThrowArgumentNullException() {
-            _stringResult.ExecuteResult(null);
+        public void ExecuteResultWithNullContextShouldThrowArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => _stringResult.ExecuteResult(null));
         }
 
-        [Test, ExpectedException(typeof(ArgumentNullException))]
         public void ExecuteResultWithBlankViewNameShouldThrowArgumentNullException([Values(null, "")] string viewName) {
             _stringResult.ViewName = viewName;
-            _stringResult.ExecuteResult(new ControllerContext());
+            Assert.Throws<ArgumentNullException>(() => _stringResult.ExecuteResult(new ControllerContext()));
         }
 
         [Test]

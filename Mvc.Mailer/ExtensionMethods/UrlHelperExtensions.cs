@@ -1,10 +1,23 @@
-﻿using System.Web.Mvc;
-using System;
+﻿using System;
+
+
+#if NETCOREAPP3_0
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc;
+#else
+using System.Web.Mvc;
 using System.Configuration;
+#endif
+
 
 namespace Mvc.Mailer {
     public static class UrlHelperExtensions {
+
+#if !NETCOREAPP3_0
         public static readonly string BASE_URL_KEY = "MvcMailer.BaseUrl";
+#endif
 
         /// <summary>
         /// This extension method will help generating Absolute Urls in the mailer or other views
@@ -12,7 +25,13 @@ namespace Mvc.Mailer {
         /// <param name="urlHelper">The object that gets the extended behavior</param>
         /// <param name="relativeOrAbsoluteUrl">A relative or absolute URL to convert to Absolute</param>
         /// <returns>An absolute Url. e.g. http://domain:port/controller/action from /controller/action</returns>
-        public static string Abs(this UrlHelper urlHelper, string relativeOrAbsoluteUrl) {
+
+#if NETCOREAPP3_0
+        public static string Abs(this IUrlHelper urlHelper, string relativeOrAbsoluteUrl)
+#else
+        public static string Abs(this UrlHelper urlHelper, string relativeOrAbsoluteUrl)
+#endif
+        {
             var uri = new Uri(relativeOrAbsoluteUrl, UriKind.RelativeOrAbsolute);
             if (uri.IsAbsoluteUri) {
                 return relativeOrAbsoluteUrl;
@@ -27,7 +46,20 @@ namespace Mvc.Mailer {
         }
 
 
-        private static Uri BaseUrl(UrlHelper urlHelper) {
+#if NETCOREAPP3_0
+        private static Uri BaseUrl(IUrlHelper urlHelper)
+#else
+        private static Uri BaseUrl(UrlHelper urlHelper) 
+#endif
+        {
+
+#if NETCOREAPP3_0
+
+            var request = urlHelper.ActionContext.HttpContext.Request;
+
+            return new Uri($"{request.Scheme}://{request.Host}{request.PathBase}");
+#else
+
             var baseUrl = ConfigurationManager.AppSettings[BASE_URL_KEY];
 
             //No configuration given, so use the one from the context
@@ -36,6 +68,10 @@ namespace Mvc.Mailer {
             }
 
             return new Uri(baseUrl);
+
+#endif
+
+
         }
     }
 }

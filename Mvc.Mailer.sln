@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Mailer", "Mvc.Mailer\Mvc.Mailer.csproj", "{37B58562-EF1A-47FE-A02E-98C82D5FB5BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Mailer.Test", "Mvc.Mailer.Test\Mvc.Mailer.Test.csproj", "{3664DD95-3C70-421E-96CA-9B63EE086C27}"
@@ -9,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Rakefile = Rakefile
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Mailer.AspNetCore", "Mvc.Mailer.ASPCore\Mvc.Mailer.AspNetCore.csproj", "{0D0C99EC-543E-42BF-BAEC-A77B999A6203}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,8 +28,15 @@ Global
 		{3664DD95-3C70-421E-96CA-9B63EE086C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3664DD95-3C70-421E-96CA-9B63EE086C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3664DD95-3C70-421E-96CA-9B63EE086C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D0C99EC-543E-42BF-BAEC-A77B999A6203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D0C99EC-543E-42BF-BAEC-A77B999A6203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D0C99EC-543E-42BF-BAEC-A77B999A6203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D0C99EC-543E-42BF-BAEC-A77B999A6203}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23E6E5B0-D543-4CAF-B3BB-12663676235D}
 	EndGlobalSection
 EndGlobal

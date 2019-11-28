@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AssemblyName>Mvc.Mailer</AssemblyName>
+    <RootNamespace>Mvc.Mailer</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Mvc.Mailer\ExtensionMethods\HtmlHelperExtensions.cs" Link="ExtensionMethods\HtmlHelperExtensions.cs" />
+    <Compile Include="..\Mvc.Mailer\ExtensionMethods\UrlHelperExtensions.cs" Link="ExtensionMethods\UrlHelperExtensions.cs" />
+    <Compile Include="..\Mvc.Mailer\ILinkedResourceProvider.cs" Link="ILinkedResourceProvider.cs" />
+    <Compile Include="..\Mvc.Mailer\ISmtpClient.cs" Link="ISmtpClient.cs" />
+    <Compile Include="..\Mvc.Mailer\LinkedResourceProvider.cs" Link="LinkedResourceProvider.cs" />
+    <Compile Include="..\Mvc.Mailer\MailerBase.cs" Link="MailerBase.cs" />
+    <Compile Include="..\Mvc.Mailer\MvcMailMessage.cs" Link="MvcMailMessage.cs" />
+    <Compile Include="..\Mvc.Mailer\SmtpClientBase.cs" Link="SmtpClientBase.cs" />
+    <Compile Include="..\Mvc.Mailer\SmtpClientWrapper.cs" Link="SmtpClientWrapper.cs" />
+    <Compile Include="..\Mvc.Mailer\StringResult.cs" Link="StringResult.cs" />
+    <Compile Include="..\Mvc.Mailer\TestSmtpClient.cs" Link="TestSmtpClient.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ExtensionMethods\" />
+  </ItemGroup>
+
+</Project>
